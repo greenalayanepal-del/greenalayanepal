@@ -1,1 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Greenalaya Nepal | Research & Innovation for Nature</title>
+  
+  <!-- Font -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.0/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5.0.0/index.css">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    :root {
+      --primary-green: #2e7d32;
+      --dark-green: #1b5e20;
+      --light-green: #e8f5e9;
+      --tech-blue: #1976d2;
+      --accent-ochre: #d4a574;
+      --dark: #1b1b1b;
+      --gray: #666666;
+      --light-gray: #f5f5f5;
+      --white: #ffffff;
+      --gradient-green: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+      --gradient-blue: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      z-index: 1000;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 10px 0;
+      background: rgba(255, 255, 255, 0.99);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-green);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .logo-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-green);
+    }
+
+    .logo-text span {
+      color: var(--tech-blue);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-green);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      background: var(--gradient-green);
+      color: white !important;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .nav-cta::after {
+      display: none;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(46, 125, 50, 0.4);
+      color: white !important;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--dark);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+                  url('https://image.qwenlm.ai/public_source/5ae12ba7-3c4d-4149-b96b-8228ed007dac/1ddc86efa-eaa0-4854-90de-dc2a91893eeb.png')
+                  center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+      margin-top: 80px;
+    }
+
+    .hero-content {
+      max-width: 1000px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 span {
+      color: #81c784;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      max-width: 750px;
+      margin: 0 auto 35px;
+      opacity: 0.95;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gradient-green);
+      color: white;
+      box-shadow: 0 5px 20px rgba(46, 125, 50, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(46, 125, 50, 0.5);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      color: white;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.25);
+      transform: translateY(-3px);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+      }
+      40% {
+        transform: translateX(-50%) translateY(-15px);
+      }
+      60% {
+        transform: translateX(-50%) translateY(-7px);
+      }
+    }
+
+    .scroll-indicator i {
+      font-size: 2rem;
+      opacity: 0.8;
+    }
+
+    /* About Section */
+    .section {
+      padding: 100px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--light-green);
+      color: var(--primary-green);
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .section-header h2 {
+      font-size: 2.8rem;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      color: var(--primary-green);
+    }
+
+    .about-content p {
+      margin-bottom: 20px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .vision-mission-box {
+      background: var(--light-green);
+      padding: 35px;
+      border-radius: 20px;
+      margin-top: 30px;
+      border-left: 5px solid var(--primary-green);
+    }
+
+    .vision-mission-box h4 {
+      color: var(--primary-green);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .vision-mission-box p {
+      color: var(--dark);
+      font-style: italic;
+    }
+
+    .about-image {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 30px;
+      color: white;
+    }
+
+    /* Strategic Pillars */
+    .pillars-section {
+      background: var(--light-gray);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    .pillar-card {
+      background: white;
+      padding: 40px 25px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .pillar-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 2rem;
+      color: white;
+    }
+
+    .pillar-card:nth-child(2) .pillar-icon {
+      background: var(--gradient-blue);
+    }
+
+    .pillar-card:nth-child(3) .pillar-icon {
+      background: linear-gradient(135deg, #d4a574 0%, #a67c52 100%);
+    }
+
+    .pillar-card:nth-child(4) .pillar-icon {
+      background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    }
+
+    .pillar-card:nth-child(5) .pillar-icon {
+      background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    }
+
+    .pillar-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--dark);
+    }
+
+    .pillar-card p {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    /* Thematic Areas */
+    .thematic-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .thematic-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #eee;
+    }
+
+    .thematic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .thematic-header {
+      padding: 30px;
+      background: var(--gradient-green);
+      color: white;
+    }
+
+    .thematic-card:nth-child(2) .thematic-header {
+      background: var(--gradient-blue);
+    }
+
+    .thematic-card:nth-child(3) .thematic-header {
+      background: linear-gradient(135deg, #d4a574 0%, #a67c52 100%);
+    }
+
+    .thematic-card:nth-child(4) .thematic-header {
+      background: linear-gradient(135deg, #673ab7 0%, #512da8 100%);
+    }
+
+    .thematic-card:nth-child(5) .thematic-header {
+      background: linear-gradient(135deg, #00bcd4 0%, #0097a7 100%);
+    }
+
+    .thematic-card:nth-child(6) .thematic-header {
+      background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+    }
+
+    .thematic-card:nth-child(7) .thematic-header {
+      background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
+    }
+
+    .thematic-number {
+      font-size: 3rem;
+      font-weight: 700;
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .thematic-header h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .thematic-header p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .thematic-body {
+      padding: 30px;
+    }
+
+    .thematic-body ul {
+      list-style: none;
+    }
+
+    .thematic-body li {
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    .thematic-body li:last-child {
+      border-bottom: none;
+    }
+
+    .thematic-body li i {
+      color: var(--primary-green);
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+
+    /* Impact Stats */
+    .impact-section {
+      background: var(--gradient-green);
+      color: white;
+      padding: 80px 20px;
+    }
+
+    .impact-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .impact-item h3 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .impact-item p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                  url('https://image.qwenlm.ai/public_source/5ae12ba7-3c4d-4149-b96b-8228ed007dac/110a8ea7b-d367-49f2-901d-b682c9b619ce.png')
+                  center/cover no-repeat;
+      padding: 120px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-content p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      opacity: 0.95;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 80px 20px 30px;
+    }
+
+    .footer-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand .logo {
+      margin-bottom: 20px;
+    }
+
+    .footer-brand p {
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-links a {
+      width: 45px;
+      height: 45px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-green);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h4 {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+      color: white;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary-green);
+    }
+
+    .footer-bottom {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-bottom p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.9rem;
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .footer-bottom-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-bottom-links a:hover {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .pillars-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .thematic-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+      
+      .nav-container {
+        padding: 0 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div class="logo-text">Greenalaya <span>Nepal</span></div>
+      </a>
+      
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#pillars">Pillars</a></li>
+        <li><a href="#thematic">Our Work</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#get-involved" class="nav-cta">Get Involved</a></li>
+      </ul>
+      
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-seedling"></i> Research & Innovation for Nature
+      </div>
+      <h1>Building a <span>Resilient Nepal</span> Through Data-Driven Conservation</h1>
+      <p class="hero-subtitle">
+        Greenalaya Nepal leverages research, technological innovation, and green enterprise 
+        to deliver data-driven solutions for resilient ecosystems through collaboration.
+      </p>
+      <div class="hero-buttons">
+        <a href="#thematic" class="btn btn-primary">
+          <i class="fas fa-arrow-right"></i> Explore Our Work
+        </a>
+        <a href="#get-involved" class="btn btn-secondary">
+          <i class="fas fa-hand-holding-heart"></i> Join as Citizen Scientist
+        </a>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="about-grid">
+      <div class="about-content">
+        <span class="section-tag">Who We Are</span>
+        <h3>National Environmental NGO for Research & Innovation</h3>
+        <p>
+          Greenalaya Nepal is a national environmental NGO that leverages research, 
+          technological innovation, and green enterprise to deliver data-driven solutions 
+          for resilient ecosystems through collaboration.
+        </p>
+        <p>
+          We work at the intersection of nature and technology, empowering communities 
+          to conserve and restore ecosystems while fostering sustainable green innovative 
+          enterprises in balance with nature.
+        </p>
+        
+        <div class="vision-mission-box">
+          <h4><i class="fas fa-eye"></i> Our Vision</h4>
+          <p>
+            A resilient Nepal where empowered communities conserve ecosystems and foster 
+            sustainable green innovative enterprises in balance with nature and technology.
+          </p>
+        </div>
+        
+        <div class="vision-mission-box" style="margin-top: 20px; border-left-color: var(--tech-blue);">
+          <h4 style="color: var(--tech-blue);"><i class="fas fa-bullseye"></i> Our Mission</h4>
+          <p>
+            To generate credible environmental knowledge, advance community-centered 
+            conservation, and catalyze innovative eco-business solutions that protect 
+            biodiversity, strengthen local livelihoods, and influence sustainable 
+            development pathways in Nepal.
+          </p>
+        </div>
+      </div>
+      
+      <div class="about-image">
+        <img src="https://image.qwenlm.ai/public_source/5ae12ba7-3c4d-4149-b96b-8228ed007dac/110a8ea7b-d367-49f2-901d-b682c9b619ce.png" alt="Community Conservation">
+        <div class="about-image-overlay">
+          <h4><i class="fas fa-users"></i> Community-Led Conservation</h4>
+          <p>Empowering local communities through participatory conservation and capacity building</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Pillars Section -->
+  <section class="section pillars-section" id="pillars">
+    <div class="section-header">
+      <span class="section-tag">Our Foundation</span>
+      <h2>Core Strategic Pillars</h2>
+      <p>
+        Five interconnected pillars guide all our initiatives, ensuring holistic 
+        and sustainable environmental solutions for Nepal.
+      </p>
+    </div>
+    
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3>People</h3>
+        <p>Empowering communities through education, training, and participatory conservation</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i class="fas fa-microchip"></i>
+        </div>
+        <h3>Technology</h3>
+        <p>Leveraging AI, GIS, and data systems for smart environmental monitoring</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i class="fas fa-flask"></i>
+        </div>
+        <h3>Research</h3>
+        <p>Conducting credible environmental research to inform evidence-based action</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i class="fas fa-tree"></i>
+        </div>
+        <h3>Nature</h3>
+        <p>Protecting and restoring ecosystems, biodiversity, and natural resources</p>
+      </div>
+      
+      <div class="pillar-card">
+        <div class="pillar-icon">
+          <i class="fas fa-handshake"></i>
+        </div>
+        <h3>Collaboration</h3>
+        <p>Partnering with communities, organizations, and government for systemic change</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Thematic Areas Section -->
+  <section class="section" id="thematic">
+    <div class="section-header">
+      <span class="section-tag">What We Do</span>
+      <h2>Thematic Areas of Focus</h2>
+      <p>
+        Seven key thematic areas drive our work, addressing emerging environmental 
+        challenges through innovation, research, and community engagement.
+      </p>
+    </div>
+    
+    <div class="thematic-grid">
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">01</div>
+          <h3>Emerging Environmental Issues & Research</h3>
+          <p>Addressing new and understudied challenges</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Microplastics detection & research</li>
+            <li><i class="fas fa-check-circle"></i> Urban biodiversity mapping</li>
+            <li><i class="fas fa-check-circle"></i> Invasive species management</li>
+            <li><i class="fas fa-check-circle"></i> AI for sustainable urban biodiversity</li>
+            <li><i class="fas fa-check-circle"></i> Pollution hotspot mapping</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">02</div>
+          <h3>Conservation & Ecosystem Restoration</h3>
+          <p>Protecting and rehabilitating habitats</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Forest micro-pond programs</li>
+            <li><i class="fas fa-check-circle"></i> Water recharge structures in Chure hills</li>
+            <li><i class="fas fa-check-circle"></i> Degraded ecosystem mapping</li>
+            <li><i class="fas fa-check-circle"></i> Biodiversity corridors</li>
+            <li><i class="fas fa-check-circle"></i> Pollinator parks & bee conservation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">03</div>
+          <h3>Climate Change & Pollution Management</h3>
+          <p>Adaptation, mitigation, and reduction</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Community carbon literacy programs</li>
+            <li><i class="fas fa-check-circle"></i> Early warning systems</li>
+            <li><i class="fas fa-check-circle"></i> River cleanup programs</li>
+            <li><i class="fas fa-check-circle"></i> Carbon footprint training</li>
+            <li><i class="fas fa-check-circle"></i> Pollution status analysis</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">04</div>
+          <h3>Innovation, Eco-Products & Circular Economy</h3>
+          <p>Linking conservation with livelihoods</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Local product branding (wild honey, sarus grains)</li>
+            <li><i class="fas fa-check-circle"></i> Eco-packaging solutions</li>
+            <li><i class="fas fa-check-circle"></i> Biodegradable alternatives</li>
+            <li><i class="fas fa-check-circle"></i> Biomimicry product design</li>
+            <li><i class="fas fa-check-circle"></i> Green enterprise prototypes</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">05</div>
+          <h3>Environmental Technology & Data Systems</h3>
+          <p>GIS, AI, and data-driven solutions</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Digital mapping through GIS</li>
+            <li><i class="fas fa-check-circle"></i> Remote sensing & R programming</li>
+            <li><i class="fas fa-check-circle"></i> Smart pollution tracking tools</li>
+            <li><i class="fas fa-check-circle"></i> Environmental monitoring systems</li>
+            <li><i class="fas fa-check-circle"></i> Digital biodiversity documentation</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">06</div>
+          <h3>Community Conservation & Capacity Building</h3>
+          <p>Empowering local communities</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Citizen scientist programs</li>
+            <li><i class="fas fa-check-circle"></i> Green classroom in schools</li>
+            <li><i class="fas fa-check-circle"></i> Local ranger training</li>
+            <li><i class="fas fa-check-circle"></i> Eco-tourism hub promotion</li>
+            <li><i class="fas fa-check-circle"></i> Skill sharing workshops</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="thematic-card">
+        <div class="thematic-header">
+          <div class="thematic-number">07</div>
+          <h3>Environmental Policy, Governance & Ethics</h3>
+          <p>Science-based policies and advocacy</p>
+        </div>
+        <div class="thematic-body">
+          <ul>
+            <li><i class="fas fa-check-circle"></i> Policy research & gap analysis</li>
+            <li><i class="fas fa-check-circle"></i> Evidence-based recommendations</li>
+            <li><i class="fas fa-check-circle"></i> Government engagement</li>
+            <li><i class="fas fa-check-circle"></i> Ethical governance standards</li>
+            <li><i class="fas fa-check-circle"></i> Advocacy campaigns</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact Stats Section -->
+  <section class="impact-section" id="impact">
+    <div class="impact-grid">
+      <div class="impact-item">
+        <h3 data-target="15">0+</h3>
+        <p>Research Projects</p>
+      </div>
+      <div class="impact-item">
+        <h3 data-target="5000">0+</h3>
+        <p>Community Members Engaged</p>
+      </div>
+      <div class="impact-item">
+        <h3 data-target="50">0+</h3>
+        <p>Partner Organizations</p>
+      </div>
+      <div class="impact-item">
+        <h3 data-target="100">0+</h3>
+        <p>Citizen Scientists Trained</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="get-involved">
+    <div class="cta-content">
+      <h2>Join Our Movement</h2>
+      <p>
+        Whether you're a researcher, community member, student, or organization, 
+        there are many ways to contribute to Nepal's environmental resilience.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="btn btn-primary">
+          <i class="fas fa-user-plus"></i> Become a Volunteer
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <i class="fas fa-flask"></i> Research Internship
+        </a>
+        <a href="#" class="btn btn-secondary">
+          <i class="fas fa-handshake"></i> Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div class="logo-text">Greenalaya <span>Nepal</span></div>
+        </a>
+        <p>
+          Research & Innovation for Nature. Building a resilient Nepal through 
+          data-driven conservation and green enterprise.
+        </p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#thematic">Our Work</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Resources</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Thematic Areas</h4>
+        <ul>
+          <li><a href="#">Conservation</a></li>
+          <li><a href="#">Climate Change</a></li>
+          <li><a href="#">Eco-Products</a></li>
+          <li><a href="#">Environmental Tech</a></li>
+          <li><a href="#">Policy & Advocacy</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@greenalayanepal.org.np"><i class="fas fa-envelope"></i> info@greenalayanepal.org.np</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</a></li>
+          <li><a href="#"><i class="fas fa-phone"></i> +977-XXXXXXXXXX</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Greenalaya Nepal. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Ethical Standards</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+      const navbar = document.getElementById('navbar');
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Counter animation for impact stats
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000;
+      const step = target / (duration / 16);
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          element.textContent = target + '+';
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + '+';
+        }
+      }, 16);
+    }
+
+    // Intersection Observer for counter animation
+    const impactSection = document.querySelector('.impact-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.impact-item h3').forEach(counter => {
+            animateCounter(counter);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    if (impactSection) {
+      observer.observe(impactSection);
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', function() {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        if (navLinks.style.display === 'flex') {
+          navLinks.style.flexDirection = 'column';
+          navLinks.style.position = 'absolute';
+          navLinks.style.top = '100%';
+          navLinks.style.left = '0';
+          navLinks.style.right = '0';
+          navLinks.style.background = 'white';
+          navLinks.style.padding = '20px';
+          navLinks.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+        }
+      });
+    }
+
+    // Add animation on scroll for cards
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const cardObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.pillar-card, .thematic-card').forEach(card => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      cardObserver.observe(card);
+    });
+  </script>
+
+</body>
+</html>
