@@ -614,26 +614,6 @@ background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
 .thematic-card:nth-child(7) .thematic-header {
 background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);
 }
-/* Center the 7th card */
-.thematic-card:nth-child(7) {
-grid-column: 1 / -1;
-max-width: 600px;
-margin: 0 auto;
-text-align: center;
-}
-.thematic-card:nth-child(7) .thematic-header {
-padding: 45px 35px;
-}
-.thematic-card:nth-child(7) .thematic-number {
-text-align: center;
-}
-.thematic-card:nth-child(7) .thematic-header h3 {
-text-align: center;
-}
-.thematic-card:nth-child(7) .thematic-header p {
-text-align: center;
-}
-
 .thematic-number {
 font-size: 3.5rem;
 font-weight: 700;
@@ -654,6 +634,16 @@ font-size: 0.95rem;
 opacity: 0.9;
 position: relative;
 z-index: 1;
+}
+/* 7th card - centered, full width, left-aligned text */
+.thematic-card:nth-child(7) {
+grid-column: 1 / -1;
+max-width: 600px;
+justify-self: center;
+width: 100%;
+}
+.thematic-card:nth-child(7) .thematic-header {
+text-align: left;
 }
 /* CTA Section */
 .cta-section {
@@ -823,7 +813,9 @@ gap: 50px;
 grid-template-columns: 1fr;
 }
 .thematic-card:nth-child(7) {
-max-width: 100%;
+grid-column: auto;
+max-width: none;
+justify-self: auto;
 }
 .nav-links {
 display: none;
