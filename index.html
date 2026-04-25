@@ -564,7 +564,7 @@ line-height: 1.6;
 /* Thematic Areas */
 .thematic-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+grid-template-columns: repeat(3, 1fr);
 gap: 35px;
 margin-top: 50px;
 }
@@ -582,10 +582,10 @@ box-shadow: var(--shadow-xl);
 }
 .thematic-header {
 padding: 35px;
-background: var(--gradient-green);
 color: white;
 position: relative;
 overflow: hidden;
+text-align: left;
 }
 .thematic-header::after {
 content: '';
@@ -595,12 +595,16 @@ right: -50%;
 width: 100%;
 height: 100%;
 background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+pointer-events: none;
+}
+.thematic-card:nth-child(1) .thematic-header {
+background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
 }
 .thematic-card:nth-child(2) .thematic-header {
-background: var(--gradient-blue);
+background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
 }
 .thematic-card:nth-child(3) .thematic-header {
-background: var(--gradient-warm);
+background: linear-gradient(135deg, #d4a574 0%, #a67c52 100%);
 }
 .thematic-card:nth-child(4) .thematic-header {
 background: linear-gradient(135deg, #673ab7 0%, #512da8 100%);
@@ -635,15 +639,9 @@ opacity: 0.9;
 position: relative;
 z-index: 1;
 }
-/* 7th card - centered, full width, left-aligned text */
+/* 7th card - centered, same width as others */
 .thematic-card:nth-child(7) {
-grid-column: 1 / -1;
-max-width: 600px;
-justify-self: center;
-width: 100%;
-}
-.thematic-card:nth-child(7) .thematic-header {
-text-align: left;
+grid-column: 2;
 }
 /* CTA Section */
 .cta-section {
@@ -810,12 +808,12 @@ grid-template-columns: 1fr;
 gap: 50px;
 }
 .thematic-grid {
-grid-template-columns: 1fr;
+grid-template-columns: repeat(2, 1fr);
 }
 .thematic-card:nth-child(7) {
-grid-column: auto;
-max-width: none;
-justify-self: auto;
+grid-column: 1 / -1;
+max-width: 100%;
+justify-self: stretch;
 }
 .nav-links {
 display: none;
@@ -837,6 +835,9 @@ grid-template-columns: repeat(2, 1fr);
 .footer-grid {
 grid-template-columns: 1fr;
 gap: 40px;
+}
+.thematic-grid {
+grid-template-columns: 1fr;
 }
 .section-header h2 {
 font-size: 2.2rem;
