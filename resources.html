@@ -1,1 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Resources | Greenalaya Nepal</title>
+<!-- Font -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.0.0/index.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sans@5.0.0/index.css">
+<link rel="icon" href="https://image.qwenlm.ai/public_source/89e6e179-211a-43fd-af7b-ee62ef3d50ef/1a14487c5-13af-4f58-b7b2-4b829e939b1d.png" type="image/png">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root {
+--primary-green: #2e7d32;
+--dark-green: #1b5e20;
+--light-green: #e8f5e9;
+--accent-green: #4caf50;
+--tech-blue: #1976d2;
+--accent-ochre: #d4a574;
+--dark: #1b1b1b;
+--gray: #666666;
+--light-gray: #f5f5f5;
+--white: #ffffff;
+--gradient-green: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+--gradient-green-light: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+--gradient-blue: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+--gradient-warm: linear-gradient(135deg, #d4a574 0%, #a67c52 100%);
+--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+--shadow-md: 0 5px 20px rgba(0, 0, 0, 0.12);
+--shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.15);
+--shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Open Sans', sans-serif;
+color: var(--dark);
+line-height: 1.7;
+background: var(--white);
+overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+line-height: 1.3;
+}
+
+/* Navigation */
+.navbar {
+position: fixed; top: 0; left: 0; right: 0;
+background: rgba(255, 255, 255, 0.95);
+backdrop-filter: blur(20px);
+box-shadow: var(--shadow-sm);
+z-index: 1000; padding: 18px 0;
+transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navbar.scrolled {
+padding: 12px 0;
+background: rgba(255, 255, 255, 0.98);
+box-shadow: var(--shadow-md);
+}
+.nav-container {
+max-width: 1400px; margin: 0 auto; padding: 0 40px;
+display: flex; justify-content: space-between; align-items: center;
+}
+.logo {
+display: flex; align-items: center; gap: 15px;
+text-decoration: none; transition: transform 0.3s ease;
+}
+.logo:hover { transform: scale(1.02); }
+.logo-img {
+height: 55px; width: auto; object-fit: contain;
+filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+transition: transform 0.3s ease;
+}
+.logo:hover .logo-img { transform: rotate(5deg); }
+.logo-text {
+font-family: 'Montserrat', sans-serif;
+font-size: 1.6rem; font-weight: 700;
+color: var(--primary-green); letter-spacing: -0.5px;
+}
+.logo-text span { color: var(--primary-green); }
+.nav-links {
+display: flex; gap: 40px; list-style: none; align-items: center;
+}
+.nav-links a {
+text-decoration: none; color: var(--dark);
+font-weight: 600; font-size: 0.95rem;
+transition: all 0.3s ease; position: relative; padding: 8px 0;
+}
+.nav-links a::after {
+content: ''; position: absolute; bottom: 0; left: 0;
+width: 0; height: 3px;
+background: var(--gradient-green);
+border-radius: 2px; transition: width 0.3s ease;
+}
+.nav-links a:hover { color: var(--primary-green); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+background: var(--gradient-green); color: white !important;
+padding: 14px 32px; border-radius: 50px;
+font-weight: 600; transition: all 0.3s ease;
+box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+}
+.nav-cta::after { display: none; }
+.nav-cta:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(46, 125, 50, 0.4);
+color: white !important;
+}
+.mobile-menu-btn {
+display: none; background: none; border: none;
+font-size: 1.6rem; color: var(--dark);
+cursor: pointer; padding: 8px;
+border-radius: 8px; transition: all 0.3s ease;
+}
+.mobile-menu-btn:hover {
+background: var(--light-green);
+color: var(--primary-green);
+}
+
+/* Page Header */
+.page-header {
+position: relative;
+height: 55vh;
+min-height: 400px;
+background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.7) 100%),
+url('https://image.qwenlm.ai/public_source/89e6e179-211a-43fd-af7b-ee62ef3d50ef/1f3305ca9-33be-4a47-9d59-83850754132a.png') center/cover no-repeat;
+display: flex; align-items: center; justify-content: center;
+text-align: center; color: white;
+padding: 0 20px; margin-top: 85px;
+}
+.page-header::before {
+content: ''; position: absolute;
+top: 0; left: 0; right: 0; bottom: 0;
+background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+pointer-events: none;
+}
+.page-header-content {
+max-width: 900px; position: relative; z-index: 2;
+animation: fadeInUp 1s ease;
+}
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.page-header h1 {
+font-size: 3.2rem; margin-bottom: 20px;
+text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+.page-header p {
+font-size: 1.25rem; opacity: 0.95;
+max-width: 700px; margin: 0 auto;
+line-height: 1.8;
+}
+.breadcrumb {
+display: inline-flex; align-items: center; gap: 10px;
+background: rgba(255, 255, 255, 0.15);
+backdrop-filter: blur(10px);
+padding: 8px 20px; border-radius: 50px;
+font-size: 0.9rem; margin-bottom: 25px;
+border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.breadcrumb a { color: white; text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb span { opacity: 0.8; }
+
+/* Section Styles */
+.section { padding: 100px 20px; max-width: 1400px; margin: 0 auto; }
+.section-header {
+text-align: center; max-width: 850px;
+margin: 0 auto 60px;
+}
+.section-tag {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(--light-green); color: var(--primary-green);
+padding: 10px 24px; border-radius: 50px;
+font-size: 0.85rem; font-weight: 700;
+margin-bottom: 20px; text-transform: uppercase;
+letter-spacing: 1.5px; box-shadow: var(--shadow-sm);
+}
+.section-header h2 {
+font-size: 2.5rem; color: var(--dark);
+margin-bottom: 20px; position: relative;
+display: inline-block;
+}
+.section-header h2::after {
+content: ''; position: absolute; bottom: -10px; left: 50%;
+transform: translateX(-50%);
+width: 80px; height: 4px;
+background: var(--gradient-green); border-radius: 2px;
+}
+.section-header p {
+font-size: 1.1rem; color: var(--gray);
+line-height: 1.8; margin-top: 25px;
+}
+
+/* Featured Resource */
+.featured-resource {
+background: linear-gradient(135deg, var(--light-green) 0%, white 100%);
+border-radius: 25px; padding: 50px;
+margin-bottom: 60px; display: grid;
+grid-template-columns: 1.2fr 1fr; gap: 40px;
+align-items: center; box-shadow: var(--shadow-md);
+border: 2px solid var(--accent-green);
+}
+.featured-badge {
+display: inline-flex; align-items: center; gap: 8px;
+background: var(--gradient-green); color: white;
+padding: 8px 20px; border-radius: 50px;
+font-size: 0.8rem; font-weight: 700;
+margin-bottom: 20px; text-transform: uppercase;
+}
+.featured-resource h3 {
+font-size: 2rem; margin-bottom: 15px;
+color: var(--dark);
+}
+.featured-resource p {
+font-size: 1.05rem; color: var(--gray);
+line-height: 1.8; margin-bottom: 25px;
+}
+.featured-meta {
+display: flex; gap: 25px; margin-bottom: 30px;
+}
+.featured-meta span {
+display: flex; align-items: center; gap: 8px;
+font-size: 0.95rem; color: var(--dark);
+}
+.featured-image {
+border-radius: 20px; overflow: hidden;
+box-shadow: var(--shadow-lg);
+}
+.featured-image img {
+width: 100%; height: 100%; object-fit: cover;
+display: block;
+}
+.featured-actions {
+display: flex; gap: 15px; margin-top: auto;
+}
+.featured-btn {
+padding: 14px 24px;
+border-radius: 12px;
+font-weight: 600;
+font-size: 1rem;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+}
+.featured-btn-download {
+background: var(--gradient-green);
+color: white;
+border: none;
+}
+.featured-btn-download:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(46, 125, 50, 0.35);
+}
+.featured-btn-preview {
+background: var(--light-gray);
+color: var(--dark);
+border: none;
+}
+.featured-btn-preview:hover {
+background: #e0e0e0;
+transform: translateY(-3px);
+box-shadow: var(--shadow-sm);
+}
+
+/* Newsletter CTA */
+.newsletter-cta {
+background: var(--gradient-green);
+border-radius: 25px; padding: 50px;
+text-align: center; color: white;
+margin: 80px 0;
+}
+.newsletter-cta h3 {
+font-size: 2rem; margin-bottom: 15px;
+}
+.newsletter-cta p {
+font-size: 1.1rem; opacity: 0.95;
+max-width: 600px; margin: 0 auto 30px;
+}
+.newsletter-form {
+display: flex; gap: 15px; max-width: 500px;
+margin: 0 auto; flex-wrap: wrap;
+justify-content: center;
+}
+.newsletter-form input {
+flex: 1; min-width: 200px;
+padding: 16px 24px; border: none;
+border-radius: 50px; font-size: 1rem;
+}
+.newsletter-form button {
+padding: 16px 35px; background: white;
+color: var(--primary-green); border: none;
+border-radius: 50px; font-weight: 700;
+cursor: pointer; transition: all 0.3s ease;
+}
+.newsletter-form button:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+color: white; padding: 100px 20px 40px;
+}
+.footer-grid {
+max-width: 1400px; margin: 0 auto;
+display: grid; grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+gap: 60px; margin-bottom: 70px;
+}
+.footer-brand .logo { margin-bottom: 25px; }
+.footer-brand p {
+color: rgba(255, 255, 255, 0.7);
+line-height: 1.9; margin-bottom: 30px;
+font-size: 1rem;
+}
+.social-links { display: flex; gap: 12px; }
+.social-links a {
+width: 48px; height: 48px;
+background: rgba(255, 255, 255, 0.08);
+border-radius: 50%; display: flex;
+align-items: center; justify-content: center;
+color: white; text-decoration: none;
+transition: all 0.3s ease; font-size: 1.1rem;
+}
+.social-links a:hover {
+background: var(--gradient-green);
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+}
+.footer-links h4 {
+font-size: 1.25rem; margin-bottom: 30px;
+color: white; position: relative;
+padding-bottom: 12px;
+}
+.footer-links h4::after {
+content: ''; position: absolute; bottom: 0; left: 0;
+width: 40px; height: 3px;
+background: var(--gradient-green); border-radius: 2px;
+}
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 15px; }
+.footer-links a {
+color: rgba(255, 255, 255, 0.7);
+text-decoration: none; transition: all 0.3s ease;
+display: flex; align-items: center; gap: 10px;
+}
+.footer-links a:hover {
+color: var(--accent-green); padding-left: 8px;
+}
+.footer-bottom {
+max-width: 1400px; margin: 0 auto;
+padding-top: 40px;
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+display: flex; justify-content: space-between;
+align-items: center; flex-wrap: wrap; gap: 25px;
+}
+.footer-bottom p {
+color: rgba(255, 255, 255, 0.5);
+font-size: 0.95rem;
+}
+.footer-bottom-links {
+display: flex; gap: 35px;
+}
+.footer-bottom-links a {
+color: rgba(255, 255, 255, 0.5);
+text-decoration: none; font-size: 0.95rem;
+transition: color 0.3s ease;
+}
+.footer-bottom-links a:hover { color: white; }
+
+/* Responsive */
+@media (max-width: 1200px) {
+.footer-grid { grid-template-columns: repeat(2, 1fr); }
+.featured-resource { grid-template-columns: 1fr; }
+}
+@media (max-width: 992px) {
+.nav-links { display: none; }
+.mobile-menu-btn { display: block; }
+.page-header h1 { font-size: 2.5rem; }
+}
+@media (max-width: 768px) {
+.section { padding: 70px 20px; }
+.section-header h2 { font-size: 2rem; }
+.featured-resource { padding: 35px 25px; }
+.newsletter-cta { padding: 40px 25px; }
+.footer-grid { grid-template-columns: 1fr; gap: 40px; }
+.footer-bottom { flex-direction: column; text-align: center; }
+.footer-bottom-links { flex-direction: column; gap: 15px; }
+}
+@media (max-width: 480px) {
+.page-header { min-height: 320px; }
+.page-header h1 { font-size: 2rem; }
+.page-header p { font-size: 1rem; }
+.logo-text { font-size: 1.3rem; }
+.logo-img { height: 45px; }
+.featured-actions { flex-direction: column; }
+.featured-btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="index.html" class="logo">
+<img src="https://image.qwenlm.ai/public_source/89e6e179-211a-43fd-af7b-ee62ef3d50ef/1a14487c5-13af-4f58-b7b2-4b829e939b1d.png" alt="Greenalaya Nepal Logo" class="logo-img">
+<div class="logo-text">Greenalaya <span>Nepal</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="index.html#about">About</a></li>
+<li><a href="index.html#pillars">Pillars</a></li>
+<li><a href="index.html#thematic">Our Work</a></li>
+<li><a href="resources.html" class="active">Resources</a></li>
+<li><a href="index.html#contact">Contact</a></li>
+<li><a href="index.html#get-involved" class="nav-cta">Get Involved</a></li>
+</ul>
+<button class="mobile-menu-btn" id="mobileMenuBtn">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+</nav>
+
+<!-- Page Header -->
+<header class="page-header">
+<div class="page-header-content">
+<div class="breadcrumb">
+<a href="index.html">Home</a>
+<span><i class="fas fa-chevron-right"></i></span>
+<span>Resources</span>
+</div>
+<h1>Knowledge Hub & Resources</h1>
+<p>Access research reports, toolkits, datasets, and multimedia resources to support evidence-based conservation and environmental action across Nepal.</p>
+</div>
+</header>
+
+<!-- Main Content -->
+<main>
+<section class="section">
+<!-- Featured Resource -->
+<div class="featured-resource">
+<div>
+<span class="featured-badge"><i class="fas fa-star"></i> Featured Publication</span>
+<h3>Nepal Biodiversity & Climate Resilience Report 2025</h3>
+<p>A comprehensive assessment of Nepal's ecosystems, climate vulnerabilities, and community-led conservation strategies. This landmark report synthesizes 3 years of field research across 12 districts.</p>
+<div class="featured-meta">
+<span><i class="fas fa-calendar"></i> March 2026</span>
+<span><i class="fas fa-file-pdf"></i> 124 pages</span>
+<span><i class="fas fa-download"></i> 2,847 downloads</span>
+</div>
+<div class="featured-actions">
+<button class="featured-btn featured-btn-download"><i class="fas fa-download"></i> Download PDF (8.2 MB)</button>
+<button class="featured-btn featured-btn-preview"><i class="fas fa-eye"></i> Preview</button>
+</div>
+</div>
+<div class="featured-image">
+<img src="https://image.qwenlm.ai/public_source/89e6e179-211a-43fd-af7b-ee62ef3d50ef/1880d8b6a-86e0-44a0-8a85-a838732eef79.png" alt="Biodiversity Report Cover">
+</div>
+</div>
+</section>
+
+<!-- Newsletter CTA -->
+<section class="section">
+<div class="newsletter-cta">
+<h3><i class="fas fa-envelope"></i> Stay Updated</h3>
+<p>Subscribe to receive new research alerts, publication announcements, and exclusive resources directly to your inbox.</p>
+<form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+<input type="email" placeholder="Your email address" required>
+<button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
+</form>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer id="contact">
+<div class="footer-grid">
+<div class="footer-brand">
+<a href="index.html" class="logo">
+<img src="https://image.qwenlm.ai/public_source/89e6e179-211a-43fd-af7b-ee62ef3d50ef/1a14487c5-13af-4f58-b7b2-4b829e939b1d.png" alt="Greenalaya Nepal Logo" class="logo-img">
+<div class="logo-text">Greenalaya <span>Nepal</span></div>
+</a>
+<p>Research & Innovation for Nature. Building a resilient Nepal through data-driven conservation and green enterprise.</p>
+<div class="social-links">
+<a href="https://www.facebook.com/greenalayanepal" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.instagram.com/greenalayanepal" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+<a href="https://www.linkedin.com/company/greenalaya-nepal" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<div class="footer-links">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="index.html#about">About Us</a></li>
+<li><a href="index.html#thematic">Our Work</a></li>
+<li><a href="resources.html">Resources</a></li>
+<li><a href="#">Projects</a></li>
+<li><a href="#">Blog</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Thematic Areas</h4>
+<ul>
+<li><a href="#">Conservation</a></li>
+<li><a href="#">Climate Change</a></li>
+<li><a href="#">Eco-Products</a></li>
+<li><a href="#">Environmental Tech</a></li>
+<li><a href="#">Policy & Advocacy</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Contact</h4>
+<ul>
+<li><a href="mailto:greenalayanepal@gmail.com"><i class="fas fa-envelope"></i> greenalayanepal@gmail.com</a></li>
+<li><a href="#"><i class="fas fa-map-marker-alt"></i> Pokhara, Nepal</a></li>
+<li><a href="#"><i class="fas fa-phone"></i> +977-9823232424</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Greenalaya Nepal. All rights reserved.</p>
+<div class="footer-bottom-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Ethical Standards</a>
+</div>
+</div>
+</footer>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+const navbar = document.getElementById('navbar');
+if (window.scrollY > 50) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const navLinks = document.querySelector('.nav-links');
+if (mobileMenuBtn) {
+mobileMenuBtn.addEventListener('click', function() {
+const isExpanded = navLinks.style.display === 'flex';
+navLinks.style.display = isExpanded ? 'none' : 'flex';
+if (!isExpanded) {
+navLinks.style.flexDirection = 'column';
+navLinks.style.position = 'absolute';
+navLinks.style.top = '100%';
+navLinks.style.left = '0';
+navLinks.style.right = '0';
+navLinks.style.background = 'white';
+navLinks.style.padding = '25px';
+navLinks.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
+navLinks.style.gap = '20px';
+}
+});
+}
+
+// Smooth scroll for navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+if (this.getAttribute('href') !== '#') {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+}
+});
+});
+</script>
+</body>
+</html>
+
 
